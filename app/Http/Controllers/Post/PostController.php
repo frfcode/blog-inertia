@@ -9,8 +9,8 @@ use Inertia\Inertia;
 class PostController extends Controller
 {
     //
-    public function index(){
-        return true;
+    public function index($id){
+        return inertia::render('Post/Post', ['id' => $id]);
     }
 
     public function store(Request $request){
@@ -21,7 +21,8 @@ class PostController extends Controller
         return Inertia::render('Post/Create');
     }
 
-    public function show(Request $request){
+    public function show($id){
+        dd($id);
         return true;
     }
 

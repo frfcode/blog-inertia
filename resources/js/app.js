@@ -1,5 +1,4 @@
 import "./bootstrap";
-import "../css/app.css";
 
 //INERTIA.JS
 import { createApp, h } from "vue";

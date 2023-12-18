@@ -1,10 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
+import { getImageUrl } from "@/Utils/utils";
 
 const props = defineProps({
     logo: String,
     title: String,
 });
+
+// CALL LOGO
 </script>
 
 <template>
@@ -13,7 +16,13 @@ const props = defineProps({
             class="flex items-center justify-between flex-wrap bg-teal-500 p-6"
         >
             <div class="flex items-center flex-shrink-0 text-white mr-6">
-                <img :src="props.logo" :alt="props.title" />
+                <a href="/">
+                    <img
+                        :src="getImageUrl(props.logo)"
+                        :alt="props.title"
+                        class="w-2/5"
+                    />
+                </a>
             </div>
             <div class="block lg:hidden">
                 <button
@@ -45,18 +54,12 @@ const props = defineProps({
                     >
                         Examples
                     </a>
-                    <a
-                        href="#responsive-header"
-                        class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-                    >
-                        Blog
-                    </a>
                 </div>
                 <div>
                     <a
-                        href="#"
+                        href="/login"
                         class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-                        >Download</a
+                        >Login</a
                     >
                 </div>
             </div>

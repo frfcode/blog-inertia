@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Post\PostController;
 use Illuminate\Support\Facades\Route;
@@ -16,26 +17,9 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return inertia::render('App', [
-        'title' => 'Home',
-        'description' => 'Blog Interia App',
-        'articles' => [
-            [
-                'id' => 1,
-                'title' => 'Article 1',
-                'content' => 'Content 1'
-            ],
-            [
-                'id' => 2,
-                'title' => 'Article 2',
-                'content' => 'Content 2'
-            ]
-        ]
-    ]);
-});
+Route::get('/', [AppController::class, 'index'])->name('app');
+Route::get('/post/{id}', [PostController::class, 'index'])->name('post');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-
 //Panel admin
 Route::resource('/admin/posts', PostController::class);
